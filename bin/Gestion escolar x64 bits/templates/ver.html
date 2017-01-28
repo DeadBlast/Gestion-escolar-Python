@@ -1,0 +1,244 @@
+<html>
+<head>
+
+<title>Información del alumno</title>
+<link rel="shortcut icon" href="static/icon.ico"/>
+<style type="text/css">
+/************
+//--------------------------------
+// GENERAL
+//-------------------------------
+************/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+    background: #e2e2e2;
+    font-size: 1em;
+    line-height: 1.5em;
+
+    padding-top: 80px;
+}
+
+h1 {
+    font-size: 2.3em;
+  line-height: 1.3em;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 300;
+}
+
+p {
+    margin: 0 0 1.5em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+a{
+    color: #9C1A1C;
+}
+/************
+//-------------------------------
+// CABECERA
+//-------------------------------
+************/
+#main-header {
+    background: #86101f;
+    color: white;
+    height: 80px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+    #main-header a {
+        color: white;
+    }
+
+
+/*
+ * Logo
+ */
+#logo-header {
+    float: left;
+    padding: 15px 0 0 20px;
+    text-decoration: none;
+}
+    #logo-header:hover {
+        color:#2f2f2f;
+    }
+
+    #logo-header .site-name {
+        display: block;
+        font-weight: 700;
+        font-size: 1.2em;
+    }
+
+    #logo-header .site-desc {
+        display: block;
+        font-weight: 300;
+        font-size: 0.8em;
+        color: white;
+    }
+
+/*
+ * Navegación
+ */
+nav {
+    float: right;
+}
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        padding-right: 20px;
+    }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+        }
+
+            nav ul li a {
+                display: block;
+                padding: 0 10px;
+                text-decoration: none;
+            }
+
+                nav ul li a:hover {
+                    background: #2f2f2f;
+                }
+/************
+//------------------------------
+// CONTENIDO
+//------------------------------
+************/
+#main-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px black;
+}
+
+    #main-content header,
+    #main-content .content {
+        padding: 40px;
+    }
+form{
+    background-color: white;
+}
+td {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 20px;
+    text-align: justify;
+    vertical-align: top;
+    width: 50%;
+}
+.uno{
+    border-right: 5px solid #86101f;
+}
+/************
+//-----------------------------
+// PIE PÁGINA
+//-----------------------------
+************/
+#main-footer {
+    background: #86101f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+    #main-footer p {
+        margin: 0;
+    }
+
+    #main-footer a {
+        color: white;
+    }
+</style>
+</head>
+<body>
+<header id="main-header">
+
+    <a id="logo-header" href="/">
+        <span class="site-name">GUADALUPE RHON DE HANK</span>
+        <span class="site-desc">Gestión escolar</span>
+    </a> <!-- / #logo-header -->
+
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/agregar">Añadir</a></li>
+            <li><a href="/buscar">Buscar</a></li>
+        </ul>
+    </nav><!-- / nav -->
+
+</header><!-- / #main-header -->
+
+
+<section id="main-content"><br>
+    <h1>Información del alumno</h1>
+    <contenido>
+    <div class="formulario">
+    <center>
+    <table>
+    <tr>
+    <form action = "/editar/{{row['id']}}">
+        <td class="uno">
+          <h3>Datos del alumno</h3>
+         Nombre<br>
+         <input type = "text" name = "nombre" value="{{row['nombre']}}" disabled="disabled"></br>
+         CURP<br>
+         <input type ="text" name= "curp" value="{{row['curp']}}" disabled="disabled"><br>
+         Edad<br>
+         <input type = "text" name = "edad" value="{{row['edad']}}" disabled="disabled"><br>
+         Matricula<br>
+         <input type = "text" name = "matricula" value="{{row['matricula']}}" disabled="disabled"><br>
+         Grado<br>
+         <input name="grado" value="{{row['grado']}}" disabled="disabled"><br>
+         Sexo<br>
+         <input name="sexo" value="{{row['sexo']}}" disabled="disabled"><br><br>
+         <input type = "submit" value = "Editar" /><br>
+         </td> <td>
+          <h3>Datos del padre</h3>
+         Nombre del Padre<br>
+         <input type="text" name="padre" value="{{row['padre']}}" disabled="disabled"><br>
+         Curp del padre<br>
+         <input type="text" name="curpp" value="{{row['curpp']}}" disabled="disabled"><br>
+         Dirección<br>
+         <textarea name="dir" disabled="disabled">{{row['dir']}}</textarea><br>
+         Entre las calles<br>
+         <input type="text" name="calle" value="{{row['calle']}}" disabled="disabled"><br>
+         Escolaridad<br>
+         <input type="text" name="escolaridad" value="{{row['escolaridad']}}" disabled="disabled"><br>
+         Ocupacion<br>
+         <input type="text" name="ocup" value="{{row['ocup']}}" disabled="disabled"><br>
+         Telefono<br>
+         <input type="text" name="tel" value="{{row['tel']}}" disabled="disabled"><br>
+         Correo<br>
+         <input type="text" name="correo" value="{{row['correo']}}" disabled="disabled"><br>
+         Red social<br>
+         <input type="text" name="red" value="{{row['red']}}" disabled="disabled"><br><br>
+        </td>
+      </form>
+    </tr>
+    </table>
+    <br><br>
+    </center>
+    </div>
+    </contenido>
+
+</section><!-- / #main-content -->
+
+
+<footer id="main-footer">
+    <p>Gestión escolar versión 1.0</a></p>
+</footer><!-- / #main-footer -->
+</body>
+</html>

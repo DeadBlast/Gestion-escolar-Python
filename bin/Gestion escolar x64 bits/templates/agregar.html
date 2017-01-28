@@ -1,0 +1,262 @@
+<html>
+<head>
+
+<title>Añadir estudiante</title>
+<link rel="shortcut icon" href="static/icon.ico" />
+<style type="text/css">
+/************
+//--------------------------------
+// GENERAL
+//-------------------------------
+************/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+    background: #e2e2e2;
+    font-size: 1em;
+    line-height: 1.5em;
+
+    padding-top: 80px;
+}
+
+h1 {
+    font-size: 2.3em;
+  line-height: 1.3em;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 300;
+}
+
+p {
+    margin: 0 0 1.5em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+a{
+    color: #9C1A1C;
+}
+/************
+//-------------------------------
+// CABECERA
+//-------------------------------
+************/
+#main-header {
+    background: #86101f;
+    color: white;
+    height: 80px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+    #main-header a {
+        color: white;
+    }
+
+
+/*
+ * Logo
+ */
+#logo-header {
+    float: left;
+    padding: 15px 0 0 20px;
+    text-decoration: none;
+}
+    #logo-header:hover {
+        color:#2f2f2f;
+    }
+
+    #logo-header .site-name {
+        display: block;
+        font-weight: 700;
+        font-size: 1.2em;
+    }
+
+    #logo-header .site-desc {
+        display: block;
+        font-weight: 300;
+        font-size: 0.8em;
+        color: white;
+    }
+
+/*
+ * Navegación
+ */
+nav {
+    float: right;
+}
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        padding-right: 20px;
+    }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+        }
+
+            nav ul li a {
+                display: block;
+                padding: 0 10px;
+                text-decoration: none;
+            }
+
+                nav ul li a:hover {
+                    background: #2f2f2f;
+                }
+/************
+//------------------------------
+// CONTENIDO
+//------------------------------
+************/
+#main-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px black;
+}
+
+    #main-content header,
+    #main-content .content {
+        padding: 40px;
+    }
+form{
+    background-color: white;
+}
+td {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 20px;
+    text-align: justify;
+    vertical-align: top;
+    width: 50%;
+}
+.uno{
+    border-right: 5px solid #86101f;
+}
+/************
+//-----------------------------
+// PIE PÁGINA
+//-----------------------------
+************/
+#main-footer {
+    background: #86101f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+    #main-footer p {
+        margin: 0;
+    }
+
+    #main-footer a {
+        color: white;
+    }
+</style>
+</head>
+<body>
+<header id="main-header">
+
+    <a id="logo-header" href="/">
+        <span class="site-name">GUADALUPE RHON DE HANK</span>
+        <span class="site-desc">Gestión escolar</span>
+    </a> <!-- / #logo-header -->
+
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/lista">Lista</a></li>
+            <li><a href="/buscar">Buscar</a></li>
+        </ul>
+    </nav><!-- / nav -->
+
+</header><!-- / #main-header -->
+
+
+<section id="main-content"><br>
+    <h1>Añadir alumno</h1>
+    <contenido>
+    <center>
+    <table>
+    <tr>
+    <form action = "{{ url_for('addrec') }}" method = "POST">
+       <td class="uno">
+          <h3>Datos del alumno</h3>
+         Nombre<br>
+         <input type = "text" name = "nombre" required></br>
+         CURP<br>
+         <input type ="text" name= "curp" required><br>
+         Edad<br>
+         <input type = "text" name = "edad" required><br>
+         Matricula<br>
+         <input type = "text" name = "matricula"><br>
+         Grado  | Sexo<br>
+         <select name="grado">
+            <optgroup label="Primer año">
+               <option value="1A">1A</option>
+               <option value="1B">1B</option>
+               <option value="1C">1C</option>
+               <option value="1D">1D</option>
+            </optgroup>
+            <optgroup label="Segundo año">
+               <option value="2A">2A</option>
+               <option value="2B">2B</option>
+               <option value="2C">2C</option>
+            </optgroup>
+            <optgroup label="Tercer año">
+               <option value="3A">3A</option>
+               <option value="3B">3B</option>
+               <option value="3C">3C</option>
+            </optgroup>
+         </select>
+         <select name="sexo" required>
+            <option value="H">H</option>
+            <option value="M">M</option>
+         </select><br><br>
+         <input type = "submit" value = "Enviar"><br>
+        </td>
+        <td>
+          <h3>Datos del padre</h3>
+         Nombre del Padre<br>
+         <input type="text" name="padre" required><br>
+         Curp del padre<br>
+         <input type="text" name="curpp" required><br>
+         Dirección<br>
+         <textarea name="dir" required></textarea><br>
+         Entre las calles<br>
+         <input type="text" name="calle" required><br>
+         Escolaridad<br>
+         <input type="text" name="escolaridad" required><br>
+         Ocupacion<br>
+         <input type="text" name="ocup" required><br>
+         Telefono<br>
+         <input type="text" name="tel" required><br>
+         Correo<br>
+         <input type="text" name="correo" required><br>
+         Red social<br>
+         <input type="text" name="red"><br><br>
+        </td>
+      </form>
+    </tr>
+    </table>
+    <br><br>
+    </center>
+    </contenido>
+
+</section><!-- / #main-content -->
+
+
+<footer id="main-footer">
+    <p>Gestión escolar versión 1.0</a></p>
+</footer><!-- / #main-footer -->
+</body>
+</html>
