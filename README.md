@@ -1,2 +1,2 @@
-#<p align="center">Gestion escolar</p>
+#Gestion escolar
 Version 1.0
